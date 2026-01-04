@@ -175,12 +175,18 @@ const App: React.FC = () => {
               
               <div className="space-y-6 text-lg font-serif text-manuscript-brown leading-relaxed">
                 <p>
-                  <strong className="text-manuscript-dark">Malay Medical Manuscript Exploration</strong> is a digital initiative designed to bring the ancient wisdom of the Malay Archipelago to the modern world.
+                  <strong className="text-manuscript-dark">Malay Medical Manuscript Exploration</strong> is a digital initiative designed to bring the ancient wisdom of the Malay Archipelago to the modern world. This website is an initiative of the <strong className="text-manuscript-dark">Malay Medical Manuscript Digitization Team, Faculty of Quranic and Sunnah Studies, USIM.</strong>
                 </p>
                 <div className="bg-manuscript-paper/50 p-6 rounded-lg border-l-4 border-manuscript-gold">
                   <h3 className="font-sans font-bold text-manuscript-dark mb-2 uppercase text-sm tracking-widest">Project Mission</h3>
                   <p>
-                    For centuries, traditional healers (known as <em>Bomoh</em> or <em>Dukun</em>) have documented their knowledge in manuscripts written in Jawi script. Our mission is to digitize, categorize, and visualize this data, making it accessible for researchers, historians, and anyone interested in the rich heritage of Malay traditional medicine.
+                    For centuries, traditional healers have documented their knowledge in manuscripts written in Jawi script. These texts contain comprehensive guides on treating ailments using locally available herbs, roots, and spiritual practices.
+                  </p>
+                  <p className="mt-4">
+                    Our mission is to digitize, categorize, and visualize this data, making it accessible for researchers, historians, and anyone interested in the rich heritage of Malay traditional medicine. This effort is driven by the commitment of the Faculty of Quranic and Sunnah Studies, USIM, to preserve this invaluable scientific heritage.
+                  </p>
+                  <p>
+                    Data presented here is sourced from various historical manuscripts including <strong className="text-manuscript-dark">Kitab Tibb MSS2999 and MSS2199.</strong>
                   </p>
                 </div>
               </div>

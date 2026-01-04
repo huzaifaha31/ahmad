@@ -49,7 +49,7 @@ To run this project locally:
    npm install
    ```
 
-2. Create a `.env` file in the root directory and add your API key:
+2. Create a `.env` file in the root directory and add your API key. You can copy `.env.example` to `.env` and fill in the value:
    ```env
    API_KEY=your_actual_api_key_here
    ```

@@ -46,12 +46,12 @@ const Hero: React.FC<HeroProps> = ({ onStart }) => {
           <div className="md:w-1/2 relative">
             <div className="absolute inset-0 bg-manuscript-gold/20 rounded-t-full transform rotate-3 scale-105 z-0"></div>
             <img 
-              src="https://picsum.photos/id/1053/600/800" 
+              src="https://huzaitx.wordpress.com/wp-content/uploads/2025/12/untitled-design-8.png" 
               alt="Ancient Manuscript" 
               className="relative z-10 rounded-t-full shadow-2xl border-b-8 border-manuscript-gold object-cover h-[600px] w-full"
             />
             <div className="absolute bottom-10 -left-10 bg-white p-4 shadow-lg rounded-lg border-l-4 border-nature-green max-w-xs hidden md:block z-20">
-              <p className="font-serif italic text-manuscript-dark">"Every disease has a cure, and when the cure matches the disease, recovery takes place by the permission of Allah."</p>
+              <p className="font-serif italic text-manuscript-dark">"From Abu Hurairah (RA), that the Prophet (peace be upon him) said: “Allah has not sent down any disease except that He has also sent down its cure.” (Narrated by al-Bukhari, no. 5678)."</p>
             </div>
           </div>
           

@@ -11,7 +11,10 @@ const Footer: React.FC = () => {
               <Scroll size={20} className="text-manuscript-gold"/> MMME Archive
             </h3>
             <p className="text-sm opacity-80 mt-2 max-w-xs font-sans">
-              Preserving the healing wisdom of the Malay Archipelago for future generations.
+              Digitizing and preserving Malay medical manuscripts for research and heritage conservation.
+            </p>
+            <p className="text-sm opacity-80 mt-2 max-w-xs font-sans">
+              Faculty of Quranic and Sunnah Studies, USIM.
             </p>
           </div>
           
