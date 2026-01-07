@@ -44,7 +44,22 @@ export default async function handler(req: any, res: any) {
       If the question is about medical safety, add a disclaimer that this is historical information and not modern medical advice.
     `;
 
-    const response = await ai.models.generateContent({ model: 'gemini-pro', contents: context });
+    let response;
+    try {
+      response = await ai.models.generateContent({ model: 'gemini-2.5-flash', contents: context });
+    } catch (err: any) {
+      const msg = err && err.error ? JSON.stringify(err.error) : String(err);
+      if (msg.includes('NOT_FOUND') || msg.toLowerCase().includes('not found')) {
+        const pager = await ai.models.list();
+        const models: any[] = [];
+        for await (const it of pager) models.push(it);
+        const candidate = models.find((m: any) => ((m.name || m.displayName || '').toLowerCase().includes('gemini'))) || models[0];
+        const modelId = (candidate && (candidate.name || candidate.displayName)) || 'gemini-2.5-flash';
+        response = await ai.models.generateContent({ model: modelId, contents: context });
+      } else {
+        throw err;
+      }
+    }
     
     // Handle response text extraction
     const responseText = response.text || (response.candidates?.[0]?.content?.parts?.[0]?.text) || 'No response generated.';

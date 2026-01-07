@@ -53,10 +53,30 @@ Please answer the user's question based on the context of traditional Malay heal
 Keep the tone respectful, academic yet accessible, and culturally appreciative.
 If the question is about medical safety, add a disclaimer that this is historical information and not modern medical advice.`;
 
-    const response = await client.models.generateContent({
-      model: 'gemini-pro',
-      contents: context,
-    });
+    // Prefer a known public Gemini model; fallback to listing models on NOT_FOUND
+    let response;
+    try {
+      response = await client.models.generateContent({
+        model: 'gemini-2.5-flash',
+        contents: context,
+      });
+    } catch (err) {
+      const msg = (err && err.error) ? JSON.stringify(err.error) : String(err);
+      if (msg.includes('NOT_FOUND') || msg.includes('not found')) {
+        // List models and pick the first gemini-like model
+        try {
+          const listed = await client.models.list();
+          const models = listed?.models || [];
+          const candidate = models.find(m => (m.name || m.displayName || '').toLowerCase().includes('gemini')) || models[0];
+          const modelId = (candidate && (candidate.name || candidate.displayName)) || 'gemini-2.5-flash';
+          response = await client.models.generateContent({ model: modelId, contents: context });
+        } catch (err2) {
+          throw err; // rethrow original
+        }
+      } else {
+        throw err;
+      }
+    }
 
     // Extract text from response
     let responseText = '';
